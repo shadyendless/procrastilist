@@ -4,7 +4,7 @@
         <title>Laravel</title>
 
         <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
-
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.25/vue.js"></script>
         <style>
             html, body {
                 height: 100%;
@@ -36,10 +36,20 @@
         </style>
     </head>
     <body>
+      <div id="app">
         <div class="container">
             <div class="content">
-                <div class="title">Laravel 5</div>
+                <div class="title">@{{ message }}</div>
             </div>
         </div>
+      </div>
+      <script>
+        new Vue({
+          el: "#app",
+          data: {
+            message: "Howdy"
+          }
+        })
+      </script>
     </body>
 </html>
