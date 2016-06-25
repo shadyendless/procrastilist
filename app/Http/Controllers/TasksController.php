@@ -46,7 +46,7 @@ class TasksController extends Controller
   }
   /*
   Creates a new database record in the Tasks table based on posted json
-  !!Plase note subtasks can only be created through this function!!
+  !!Please note subtasks can only be created through this function!!
   JSON format for creating w/ subtasks:
   {
     "data": {
