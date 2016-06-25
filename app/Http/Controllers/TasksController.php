@@ -72,7 +72,7 @@ class TasksController extends Controller
       $newTask->urgency = $request->data['urgency'];
       $newTask->save();
 
-      if(count($request->data['subtasks']) > 0) {
+      if(isset($request->data['subtasks'])) {
         $subtasks = [];
         //Instantiate each subtask into an array
         foreach($request->data["subtasks"] as $subtask){
