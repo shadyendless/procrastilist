@@ -14,3 +14,23 @@
 Route::get('/', function () {
     return view('home');
 });
+
+Route::group(['prefix' => 'api'], function() {
+
+  Route::get('tasks/', [
+    'uses' => 'TasksController@getAllTasks'
+  ]);
+
+  Route::get('tasks/{priority}', [
+    'uses' => 'TasksController@getTasksByPriority'
+  ]);
+
+  Route::post('tasks/{taskId}/delete', [
+    'uses' => "TasksController@deleteTask"
+  ]);
+
+  Route::post('tasks/{taskId}/edit', [
+    'uses' => "TasksController@editTask"
+  ]);
+
+});
