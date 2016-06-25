@@ -78,7 +78,7 @@ class TasksController extends Controller
         foreach($request->data["subtasks"] as $subtask){
           $subtasks[] = new SubTasks(['task' => $subtask['task']]);
         }
-        //using the saveMany method, save the array of SubTasks - now associated to the task we just MysqlndUhPreparedStatement
+        //using the saveMany method, save the array of SubTasks - now associated to the task we just made
         $newTask->subTasks()->saveMany($subtasks);
       }
 
