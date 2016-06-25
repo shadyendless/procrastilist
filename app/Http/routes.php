@@ -33,4 +33,8 @@ Route::group(['prefix' => 'api'], function() {
     'uses' => "TasksController@editTask"
   ]);
 
+  Route::post('tasks/create', [
+    'uses' => "TasksController@createTask"
+  ]);
+
 });

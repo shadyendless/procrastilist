@@ -10,5 +10,6 @@ class Tasks extends Model
       return $this->hasMany('App\SubTasks');
     }
 
-    protected $fillable = ['task'];
+    protected $fillable = ['task', 'urgency', 'completed'];
+
 }

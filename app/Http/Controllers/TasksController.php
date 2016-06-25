@@ -9,6 +9,7 @@ use App\Tasks;
 use App\SubTasks;
 use DB;
 
+
 class TasksController extends Controller
 {
     /*
@@ -41,7 +42,12 @@ class TasksController extends Controller
       Returns nothing, fuck you
     */
 
-    public function editTask($task) {
-      return "!";
+    public function editTask(Request $request, $taskId) {
+      return Tasks::where('id', '=', $taskId)->update($request->data);
+    }
+
+    public function createTask(Request $request) {
+      return Tasks::create($request->data);
+
     }
 }
