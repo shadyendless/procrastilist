@@ -17,7 +17,7 @@ Route::get('/', function () {
 
 Route::group(['prefix' => 'api'], function() {
 
-  Route::get('tasks/', [
+  Route::get('tasks', [
     'uses' => 'TasksController@getAllTasks'
   ]);
 

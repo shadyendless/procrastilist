@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Tasks;
 use App\SubTasks;
+use DB;
 
 class TasksController extends Controller
 {
@@ -27,10 +28,13 @@ class TasksController extends Controller
     }
 
     /*
-      Returns something, but removes a row from the database based on the provided key
+      Returns a success code, but removes a row from the database based on the provided key
     */
     public function deleteTask($taskId) {
-      return Tasks::destroy(intval($taskId));
+      return DB::transaction(function($taskId) use ($taskId) {
+        SubTasks::where('task_id', '=', $taskId)->delete();
+        Tasks::destroy(intval($taskId));
+      });
     }
 
     /*
@@ -38,10 +42,6 @@ class TasksController extends Controller
     */
 
     public function editTask($task) {
-      $updatedTask = Tasks::find(intval($task->id);
-      $updatedTask->task = $task->task;
-      $updatedTask->urgency = $task->urgency;
-      $updatedTask->save();
+      return "!";
     }
-
 }
