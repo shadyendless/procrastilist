@@ -19,5 +19,5 @@ Procrastilist is a simple todo list made for [WeeklyDev.io #1](http://weeklydev.
 
 ## Created By
 
-* Jacob Foster
 * Ben Littleton
+* Jacob Foster
