@@ -17,6 +17,8 @@
     "no-console": 0,
     // Give a warning if identifiers contain underscores.
     "no-underscore-dangle": 1,
+    // Disable `no-unused-vars` rule.
+    "no-unused-vars": 0,
     // Default to single quotes and raise an error if something else is used.
     "quotes": [2, "single"]
   }
