@@ -27,11 +27,11 @@ Route::group(['prefix' => 'api'], function() {
       'uses' => 'TasksController@getTasksByPriority'
     ]);
 
-    Route::post('{taskId}/delete', [
+    Route::delete('{taskId}', [
       'uses' => "TasksController@deleteTask"
     ]);
 
-    Route::post('{taskId}/edit', [
+    Route::post('{taskId}', [
       'uses' => "TasksController@editTask"
     ]);
 
@@ -51,11 +51,11 @@ Route::group(['prefix' => 'api'], function() {
       'uses' => 'SubTasksController@getSubTasksByTaskId'
     ]);
 
-    Route::post('{subTaskId}/edit', [
+    Route::post('{subTaskId}', [
       'uses' => 'SubTasksController@editSubTask'
     ]);
 
-    Route::post('{subTaskId}/delete', [
+    Route::delete('{subTaskId}', [
       'uses' => 'SubTasksController@deleteSubTask'
     ]);
 

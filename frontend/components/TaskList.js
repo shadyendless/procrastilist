@@ -4,8 +4,8 @@ import { observer } from 'mobx-react'
 
 @observer(['store'])
 class TaskList extends Component {
-  finishTask(taskId) {
-    this.props.store.finishTask(taskId)
+  toggleTaskCompletion(taskId) {
+    this.props.store.toggleTaskCompletion(taskId)
   }
 
   deleteTask(taskId) {
@@ -37,7 +37,7 @@ class TaskList extends Component {
             onClick={this.deleteTask.bind(this, task.id)}></span>
          <span className="TaskList--Button TaskList--Button__edit"></span>
          <span className="TaskList--Button TaskList--Button__finish"
-            onClick={this.finishTask.bind(this, task.id)}></span>
+            onClick={this.toggleTaskCompletion.bind(this, task.id)}></span>
        </div>
        <ul>
          {task.completed ? '' : subTasks}

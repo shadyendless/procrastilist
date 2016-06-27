@@ -10,9 +10,14 @@ class CreateTaskPanel extends Component {
   subTasks = []
 
   createTask() {
-    this.props.store.createTask(this.taskName, this.urgency, this.subTasks);
-    this.taskName = ''
-    this.urgency = 'meh'
+    this.props.store.createTask(this.taskName, this.urgency, this.subTasks)
+    .then(response => {
+      this.taskName = ''
+      this.urgency = 'meh'
+    })
+    .catch(err => {
+      console.log(err)
+    })
   }
 
   render() {
