@@ -24,7 +24,6 @@ class TaskList extends Component {
          <div className="TaskList--Buttons">
            <a href="#" className="TaskList--Button TaskList--Button__delete"
               onClick={this.deleteSubtask.bind(this, task.id, subTask.id)}></a>
-           <a href="#" className="TaskList--Button TaskList--Button__edit"></a>
          </div>
        </li>
      )

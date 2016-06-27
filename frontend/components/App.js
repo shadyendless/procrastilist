@@ -1,9 +1,10 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import TaskList from './TaskList'
+import CreateTaskPanel from './CreateTaskPanel'
 
 const App = () => <div className="Container">
-                    <div className="CreateTaskPanel"></div>
+                    <CreateTaskPanel />
                     <div className="CurrentTasks">
                       <TaskList urgency='urgent' />
                       <TaskList urgency='important' />
