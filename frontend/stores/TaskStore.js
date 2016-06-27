@@ -1,9 +1,14 @@
 import { observable, computed, action, asFlat } from 'mobx'
 import _ from 'lodash'
 
-export default class TaskStore {
+class TaskStore {
   @observable tasks = []
   @observable isLoading = false
+
+  constructor() {
+    this.tasks = []
+    this.isLoading = false
+  }
 
   fetchTasks() {
     this.isLoading = true
@@ -125,3 +130,7 @@ export default class TaskStore {
     })
   }
 }
+
+let taskStore = new TaskStore()
+taskStore.fetchTasks()
+export default taskStore
