@@ -42,25 +42,24 @@ export default class TaskStore {
         data: {
           task: taskName,
           urgency: urgency,
-          subTasks: subTasks
+          subtasks: subTasks
         }
       })
     }).then(response => {
-      location.reload()
-      // response.json().then(task => {
-      //   this.tasks.unshift({
-      //     id: task.id,
-      //     task: task.task,
-      //     urgency: task.urgency,
-      //     completed: false,
-      //     subTasks: task.sub_tasks.map(subTask => {
-      //       return {
-      //         id: subTask.id,
-      //         task: subTask.task
-      //       }
-      //     })
-      //   })
-      // })
+      response.json().then(task => {
+        this.tasks.unshift({
+          id: task.id,
+          task: task.task,
+          urgency: task.urgency,
+          completed: false,
+          subTasks: task.sub_tasks.map(subTask => {
+            return {
+              id: subTask.id,
+              task: subTask.task
+            }
+          })
+        })
+      })
     }).catch(err => {
       console.log(err)
     })

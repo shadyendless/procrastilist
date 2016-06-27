@@ -22,8 +22,8 @@ class TaskList extends Component {
         <li className="Task" key={subTask.id}>
          {subTask.task}
          <div className="TaskList--Buttons">
-           <a href="#" className="TaskList--Button TaskList--Button__delete"
-              onClick={this.deleteSubtask.bind(this, task.id, subTask.id)}></a>
+           <span className="TaskList--Button TaskList--Button__delete"
+              onClick={this.deleteSubtask.bind(this, task.id, subTask.id)}></span>
          </div>
        </li>
      )
@@ -33,11 +33,11 @@ class TaskList extends Component {
       <li className={`Task ${task.completed ? 'Task__finished' : ''}`} key={task.id}>
        {task.task}
        <div className="TaskList--Buttons">
-         <a href="#" className="TaskList--Button TaskList--Button__delete"
-            onClick={this.deleteTask.bind(this, task.id)}></a>
-         <a href="#" className="TaskList--Button TaskList--Button__edit"></a>
-         <a href="#" className="TaskList--Button TaskList--Button__finish"
-            onClick={this.finishTask.bind(this, task.id)}></a>
+         <span className="TaskList--Button TaskList--Button__delete"
+            onClick={this.deleteTask.bind(this, task.id)}></span>
+         <span className="TaskList--Button TaskList--Button__edit"></span>
+         <span className="TaskList--Button TaskList--Button__finish"
+            onClick={this.finishTask.bind(this, task.id)}></span>
        </div>
        <ul>
          {task.completed ? '' : subTasks}

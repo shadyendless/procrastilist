@@ -24,33 +24,33 @@ class CreateTaskPanel extends Component {
                value={this.taskName}
                onChange={(e) => this.taskName = e.target.value} />
         <div className="CreateTaskPanel--UrgencyButtons">
-          <a className={
+          <span className={
               `CreateTaskPanel--Button ${
                 this.urgency === 'meh' ?
                 'CreateTaskPanel--Button__meh__active' :
                 'CreateTaskPanel--Button__meh'
               }`
              }
-             href="#" onClick={() => this.urgency = 'meh'}>meh</a>
-          <a className={
+            onClick={() => this.urgency = 'meh'}>meh</span>
+          <span className={
               `CreateTaskPanel--Button ${
                 this.urgency === 'important' ?
                 'CreateTaskPanel--Button__important__active' :
                 'CreateTaskPanel--Button__important'
               }`
              }
-             href="#" onClick={() => this.urgency = 'important'}>important</a>
-          <a className={
+            onClick={() => this.urgency = 'important'}>important</span>
+          <span className={
               `CreateTaskPanel--Button ${
                 this.urgency === 'urgent' ?
                 'CreateTaskPanel--Button__urgent__active' :
                 'CreateTaskPanel--Button__urgent'
               }`
              }
-             href="#" onClick={() => this.urgency = 'urgent'}>urgent</a>
+            onClick={() => this.urgency = 'urgent'}>urgent</span>
         </div>
-        <a className="CreateTaskPanel--Button CreateTaskPanel--Button__create"
-           href="#" onClick={this.createTask.bind(this)}>hold it off</a>
+        <span className="CreateTaskPanel--Button CreateTaskPanel--Button__create"
+          onClick={this.createTask.bind(this)}>hold it off</span>
       </div>
     )
   }

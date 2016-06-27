@@ -16,6 +16,9 @@ ReactDOM.render(
     <Provider store={store}>
       <App />
     </Provider>
+    <footer className="Footer">
+      hacked together hopelessly by ben littleton and jacob foster
+    </footer>
   </div>,
   document.body
 )
