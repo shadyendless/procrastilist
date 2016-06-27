@@ -82,7 +82,7 @@ class TasksController extends Controller
         $newTask->subTasks()->saveMany($subtasks);
       }
 
-      return response()->json($newTask->where('id', '=', $newTask->id)->with('SubTasks')->get());
+      return response()->json(Tasks::where('id', '=', $newTask->id)->with('SubTasks')->first());
 
     });
   }
