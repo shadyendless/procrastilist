@@ -31,12 +31,12 @@ Route::group(['prefix' => 'api'], function() {
       'uses' => "TasksController@deleteTask"
     ]);
 
-    Route::post('{taskId}', [
-      'uses' => "TasksController@editTask"
-    ]);
-
     Route::post('create', [
       'uses' => "TasksController@createTask"
+    ]);
+
+    Route::post('{taskId}', [
+      'uses' => "TasksController@editTask"
     ]);
 
   });//tasks route grop ends

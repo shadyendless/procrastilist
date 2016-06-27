@@ -19,13 +19,13 @@ class TaskStore {
       this.tasks = tasks.map(task => {
         return {
           id: task.id,
-          task: task.task,
+          task: task.task.toLowerCase(),
           urgency: task.urgency,
           completed: task.completed === '0' ? false : true,
           subTasks: task.sub_tasks.map(subTask => {
             return {
               id: subTask.id,
-              task: subTask.task
+              task: subTask.task.toLowerCase()
             }
           })
         }
@@ -38,20 +38,21 @@ class TaskStore {
   }
 
   @action createTask(taskName, urgency, subTasks) {
+
     // Return a promise so that the UI layer can update appropriately
     // if the insert fails or succeeds.
     return new Promise((resolve, reject) => {
-      this.database.createTask(taskName, urgency, subTasks)
+      this.database.createTask(taskName, urgency, subTasks.slice())
       .then(task => {
         this.tasks.unshift({
           id: task.id,
-          task: task.task,
+          task: task.task.toLowerCase(),
           urgency: task.urgency,
           completed: false,
           subTasks: task.sub_tasks.map(subTask => {
             return {
               id: subTask.id,
-              task: subTask.task
+              task: subTask.task.toLowerCase()
             }
           })
         })
