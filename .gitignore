@@ -2,7 +2,7 @@
 /node_modules
 /public/storage
 /public/build
-resources/views/index.php
 Homestead.yaml
 Homestead.json
 .env
+resources/views/index.php
