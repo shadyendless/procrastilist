@@ -65,7 +65,7 @@ class TasksController extends Controller
   */
   public function createTask(Request $request) {
 
-    DB::transaction(function($request) use ($request) {
+    return DB::transaction(function($request) use ($request) {
       //create the new task
       $newTask = new Tasks();
       $newTask->task = $request->data['task'];
@@ -81,6 +81,8 @@ class TasksController extends Controller
         //using the saveMany method, save the array of SubTasks - now associated to the task we just made
         $newTask->subTasks()->saveMany($subtasks);
       }
+
+      return $newTask;
 
     });
   }
