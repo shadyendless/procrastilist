@@ -22,21 +22,21 @@ Route::group(['prefix' => 'api'], function() {
     Route::get('/', [
       'uses' => 'TasksController@getAllTasks'
     ]);
-
-    Route::get('{priority}', [
+                                                      //RETRIEVE
+    Route::get('{priority}', [  
       'uses' => 'TasksController@getTasksByPriority'
     ]);
 
     Route::delete('{taskId}', [
-      'uses' => "TasksController@deleteTask"
+      'uses' => "TasksController@deleteTask"          //DELETE
     ]);
 
     Route::post('{taskId}', [
-      'uses' => "TasksController@editTask"
+      'uses' => "TasksController@editTask"            //UPDATE
     ]);
 
     Route::post('create', [
-      'uses' => "TasksController@createTask"
+      'uses' => "TasksController@createTask"          //CREATE
     ]);
 
   });//tasks route grop ends
