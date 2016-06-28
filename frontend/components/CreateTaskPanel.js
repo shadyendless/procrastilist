@@ -12,7 +12,15 @@ class CreateTaskPanel extends Component {
   }]
 
   createTask() {
-    this.props.store.createTask(this.taskName, this.urgency, this.subTasks)
+    // If there's no task, don't do anything.
+    if (this.taskName === '') return
+
+    // Filter out any tasks that do not have content.
+    const subTasks = this.subTasks.filter(subTask => {
+      return subTask.task !== ''
+    })
+
+    this.props.store.createTask(this.taskName, this.urgency, subTasks)
     .then(response => {
       this.taskName = ''
       this.urgency = 'meh'
@@ -26,7 +34,21 @@ class CreateTaskPanel extends Component {
   }
 
   subtaskChanged(subTask, index, event) {
+    // Lowercase the subtask.
     subTask.task = event.target.value.toLowerCase()
+
+    // If we've deleted the subtask and it is not the first subtask
+    // in the array, then remove it.
+    if (subTask.task === '' && index !== 0) {
+      this.subTasks.splice(index, 1)
+    }
+
+    // Find out if there is an empty subtask at the end of the array already.
+    // If there isn't, then we need to create a new one.
+    if (this.subTasks[this.subTasks.length - 1].task !== '')
+      this.subTasks.push({
+        task: ''
+      })
   }
 
   render() {
@@ -41,7 +63,8 @@ class CreateTaskPanel extends Component {
     return (
       <div className="CreateTaskPanel">
         <h1 className="CreateTaskPanel--Title">hold off on doing . . .</h1>
-        <input type="text" className="CreateTaskPanel--TaskNameInput"
+        <input type="text"
+               className={`CreateTaskPanel--TaskNameInput CreateTaskPanel--TaskNameInput__${this.urgency}`}
                placeholder="what do you have to do?"
                value={this.taskName}
                onChange={(e) => this.taskName = e.target.value.toLowerCase()} />
